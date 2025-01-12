@@ -21,7 +21,7 @@ const bot = new Bot(BOT_TOKEN);
 bot.command("start", async (ctx) => {
   let user = await ctx.getAuthor();
 
-  if (user.user.id !== parseInt(USER_ID)) return ctx.reply("Km siapa y");
+  if (user.user.id !== parseInt(USER_ID)) return ctx.reply("You are not authorized to use this bot.");
 
   let api = "https://api.ipify.org/?format=json";
 

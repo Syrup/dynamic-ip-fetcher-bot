@@ -26,6 +26,14 @@ BOT_TOKEN=<your_bot_token>
 
 Or rename `.env.example` to `.env`
 
+Additionally, set the bot to can't join group through BotFather to ensure only authorized users can access it. To do this, follow these steps:
+
+1. Open a chat with [BotFather](https://t.me/botfather) on Telegram.
+2. Send the command `/mybots` and select your bot.
+3. Click on "Bot Settings".
+4. Click on "Group Privacy".
+5. Select "Turn on" to prevent the bot from joining groups.
+
 ## Running the Project
 
 To run:
