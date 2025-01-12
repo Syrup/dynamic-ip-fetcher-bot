@@ -41,6 +41,20 @@ USER_ID=123456789
 BOT_TOKEN=123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11
 ```
 
+### Getting Your User ID
+
+To get your `USER_ID`, follow these steps:
+
+1. Start the bot by running the command:
+
+```bash
+bun run index.ts
+```
+
+2. Open a chat with your bot on Telegram.
+3. Send the command `/getid`.
+4. The bot will reply with your user ID.
+
 ### Troubleshooting Tips
 
 - Ensure that the `USER_ID` and `BOT_TOKEN` values are correct and match the ones provided by Telegram.
