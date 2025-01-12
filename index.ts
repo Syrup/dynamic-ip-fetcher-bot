@@ -5,13 +5,23 @@ type IP = {
   ip: string;
 };
 
-const bot = new Bot("7974527229:AAFB-N4zux_g8Q506fA1JfhOR2_UyRTl4xU");
+const USER_ID = process.env.USER_ID;
+const BOT_TOKEN = process.env.BOT_TOKEN;
+
+if (!USER_ID || isNaN(parseInt(USER_ID))) {
+  throw new Error("USER_ID environment variable is not set or not a number");
+}
+
+if (!BOT_TOKEN) {
+  throw new Error("BOT_TOKEN environment variable is not set");
+}
+
+const bot = new Bot(BOT_TOKEN);
 
 bot.command("start", async (ctx) => {
   let user = await ctx.getAuthor();
-  const OWNER_ID = 2126445260;
 
-  if (user.user.id !== OWNER_ID) return ctx.reply("Km siapa y");
+  if (user.user.id !== parseInt(USER_ID)) return ctx.reply("You are not authorized to use this bot.");
 
   let api = "https://api.ipify.org/?format=json";
 
