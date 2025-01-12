@@ -17,7 +17,14 @@ bun install
 
 ## Configuration
 
-To configure the bot, you need to set the bot token and owner ID in the `index.ts` file.
+To configure the bot, you need to set the bot token and owner ID in the environment variables. Create a `.env` file with the following content:
+
+```
+USER_ID=<your_user_id>
+BOT_TOKEN=<your_bot_token>
+```
+
+Or rename `.env.example` to `.env`
 
 ## Running the Project
 
