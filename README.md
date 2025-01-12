@@ -1,6 +1,4 @@
-# IP Fetcher Tele
-
-## Project Description
+# Dynamic IP Fetcher
 
 This project is a Telegram bot that fetches and displays the system public IP address. It is particularly useful for users with dynamic IP addresses.
 
@@ -25,6 +23,29 @@ BOT_TOKEN=<your_bot_token>
 ```
 
 Or rename `.env.example` to `.env`
+
+### Setting Up Environment Variables
+
+1. Create a `.env` file in the root directory of your project.
+2. Add the following content to the `.env` file:
+
+```
+USER_ID=<your_user_id>
+BOT_TOKEN=<your_bot_token>
+```
+
+Example:
+
+```
+USER_ID=123456789
+BOT_TOKEN=123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11
+```
+
+### Troubleshooting Tips
+
+- Ensure that the `USER_ID` and `BOT_TOKEN` values are correct and match the ones provided by Telegram.
+- If the bot is not responding, check the logs for any error messages.
+- Make sure that the bot is not restricted or banned by Telegram.
 
 Additionally, set the bot to can't join group through BotFather to ensure only authorized users can access it. To do this, follow these steps:
 
@@ -72,6 +93,13 @@ Environment=NODE_ENV=production
 
 [Install]
 WantedBy=multi-user.target
+```
+
+Example configured path:
+
+```ini
+[Service]
+ExecStart=/usr/local/bin/bun run /home/user/ipfetcher/index.ts
 ```
 
 3. Enable and start the service:
@@ -125,6 +153,32 @@ To configure the bot to run on boot in macOS, you can use `launchd`:
 launchctl load ~/Library/LaunchAgents/com.example.ipfetcher.plist
 ```
 
+## Usage Examples
+
+### Example 1: Fetching Public IP
+
+1. Start the bot by running the command:
+
+```bash
+bun run index.ts
+```
+
+2. Open a chat with your bot on Telegram.
+3. Send the command `/start`.
+4. The bot will reply with your public IP address.
+
+### Example 2: Unauthorized User
+
+1. Start the bot by running the command:
+
+```bash
+bun run index.ts
+```
+
+2. Open a chat with your bot on Telegram using a different account (not the owner).
+3. Send the command `/start`.
+4. The bot will reply with "You are not authorized to use this bot."
+
 ## Contributing
 
 Contributions are welcome! Please follow these guidelines:
@@ -135,4 +189,4 @@ Contributions are welcome! Please follow these guidelines:
 
 ## Contact
 
-For any questions or issues, please contact the project maintainer at [Discord](https://discord.com/users/681843628317868049) or email at <fabian.maulana@sxrup.xyz>.
+For any questions or issues, please contact me at [Discord](https://discord.com/users/681843628317868049) or email me at <fabian.maulana@sxrup.xyz>.
