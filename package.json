@@ -1,5 +1,5 @@
 {
-  "name": "ip_fetcher_tele",
+  "name": "dynamic-ip-fetcher",
   "module": "index.ts",
   "type": "module",
   "devDependencies": {
