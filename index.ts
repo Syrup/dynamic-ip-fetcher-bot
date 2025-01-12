@@ -18,18 +18,55 @@ if (!BOT_TOKEN) {
 
 const bot = new Bot(BOT_TOKEN);
 
-bot.command("start", async (ctx) => {
+bot.command("ip", async (ctx) => {
   let user = await ctx.getAuthor();
 
-  if (user.user.id !== parseInt(USER_ID)) return ctx.reply("You are not authorized to use this bot.");
+  // console.log(await bot.api.getMyCommands());
+
+  if (user.user.id !== parseInt(USER_ID))
+    return ctx.reply("You are not authorized to use this bot.");
 
   let api = "https://api.ipify.org/?format=json";
 
-  let res = (await request(api).then((r) => r.body.json())) as IP;
+  let res = await request<IP>(api).then((r) => r.body.json() as Promise<IP>);
 
   let ip = res.ip;
 
   ctx.reply("Here's your public IP: " + ip);
 });
 
-bot.start();
+bot.command("getid", async (ctx) => {
+  let { user } = await ctx.getAuthor();
+
+  ctx.reply(`Your user ID is: \`${user.id}\``, { parse_mode: "MarkdownV2" });
+});
+
+bot.command("start", (ctx) => {
+  ctx.reply("Bot started successfully!");
+
+  ctx.reply(
+    "Type /help to get a list of commands, or type /ip to get your public IP.",
+  );
+});
+
+bot.command("help", async (ctx) => {
+  let commands = await bot.api.getMyCommands();
+  let message = "Here's a list of commands:\n\n";
+  commands.forEach((command) => {
+    message += `/${command.command} - ${command.description}\n`;
+  });
+  ctx.reply(message);
+});
+
+const DEFAULT_COMMANDS = [
+  { command: "ip", description: "Get your public IP" },
+  { command: "start", description: "Start the bot" },
+  { command: "help", description: "Get help" },
+  { command: "getid", description: "Get your user ID" },
+];
+
+await bot.api.setMyCommands(DEFAULT_COMMANDS);
+
+bot.catch((err) => console.error(err));
+
+await bot.start();
