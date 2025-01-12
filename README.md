@@ -189,4 +189,4 @@ Contributions are welcome! Please follow these guidelines:
 
 ## Contact
 
-For any questions or issues, please contact the project maintainer at [Discord](https://discord.com/users/681843628317868049) or email at <fabian.maulana@sxrup.xyz>.
+For any questions or issues, please contact me at [Discord](https://discord.com/users/681843628317868049) or email me at <fabian.maulana@sxrup.xyz>.
