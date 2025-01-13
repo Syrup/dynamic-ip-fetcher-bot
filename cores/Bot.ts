@@ -8,6 +8,10 @@ class FetcherBot extends Bot {
   public config = config;
 
   constructor() {
+    if (!process.env.BOT_TOKEN) {
+      throw new Error("BOT_TOKEN environment variable is not set");
+    }
+    
     super(process.env.BOT_TOKEN);
   }
 
@@ -29,10 +33,6 @@ class FetcherBot extends Bot {
       (typeof config.userId !== "number" && parseInt(config.userId) === 0)
     )
       throw new Error("Please provide a valid user id in the config file");
-
-    if (!process.env.BOT_TOKEN) {
-      throw new Error("BOT_TOKEN environment variable is not set");
-    }
 
     await this.loadCommands();
 
