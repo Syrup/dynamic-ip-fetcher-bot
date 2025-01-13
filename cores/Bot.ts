@@ -11,7 +11,7 @@ class FetcherBot extends Bot {
     if (!process.env.BOT_TOKEN) {
       throw new Error("BOT_TOKEN environment variable is not set");
     }
-    
+
     super(process.env.BOT_TOKEN);
   }
 
@@ -36,7 +36,19 @@ class FetcherBot extends Bot {
 
     await this.loadCommands();
 
-    super.start();
+    this.use(async (ctx, next) => {
+      const {
+        user: { id },
+      } = await ctx.getAuthor();
+      if (ctx.message?.text?.startsWith("/") && id !== this.config.userId) {
+        await ctx.reply("You are not authorized to use this bot.");
+        return;
+      }
+
+      await next();
+    });
+
+    this.start();
   }
 }
 
