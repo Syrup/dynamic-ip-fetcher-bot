@@ -18,7 +18,6 @@ bun install
 To configure the bot, you need to set the bot token and owner ID in the environment variables. Create a `.env` file with the following content:
 
 ```
-USER_ID=<your_user_id>
 BOT_TOKEN=<your_bot_token>
 ```
 
@@ -30,20 +29,36 @@ Or rename `.env.example` to `.env`
 2. Add the following content to the `.env` file:
 
 ```
-USER_ID=<your_user_id>
 BOT_TOKEN=<your_bot_token>
 ```
 
 Example:
 
 ```
-USER_ID=123456789
 BOT_TOKEN=123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11
+```
+
+### Setting User ID
+
+To set the user ID, open the `config.ts` file and update the `userId` property with your user ID:
+
+```typescript
+export default {
+  userId: <your_user_id>,
+} as const;
+```
+
+Example:
+
+```typescript
+export default {
+  userId: 123456789,
+} as const;
 ```
 
 ### Getting Your User ID
 
-To get your `USER_ID`, follow these steps:
+To get your `userId`, follow these steps:
 
 1. Start the bot by running the command:
 
@@ -57,7 +72,7 @@ bun run index.ts
 
 ### Troubleshooting Tips
 
-- Ensure that the `USER_ID` and `BOT_TOKEN` values are correct and match the ones provided by Telegram.
+- Ensure that the `userId` and `BOT_TOKEN` values are correct and match the ones provided by Telegram.
 - If the bot is not responding, check the logs for any error messages.
 - Make sure that the bot is not restricted or banned by Telegram.
 
@@ -204,3 +219,9 @@ Contributions are welcome! Please follow these guidelines:
 ## Contact
 
 For any questions or issues, please contact me at [Discord](https://discord.com/users/681843628317868049) or email me at <fabian.maulana@sxrup.xyz>.
+
+## License
+
+This project is licensed under the MIT License. See the `LICENSE` file for more details.
+
+You are free to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, subject to the conditions mentioned in the `LICENSE` file.
