@@ -1,5 +1,8 @@
 # Based on https://raw.githubusercontent.com/github/gitignore/main/Node.gitignore
 
+# I'm still make it, it's not finished yet lol
+tests/
+
 # Logs
 
 logs
