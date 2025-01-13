@@ -3,7 +3,7 @@ import type { Command } from "../types";
 export default {
   command: "help",
   description: "Show help",
-  async run(bot, ctx) {
+  async run(_bot, ctx) {
     let commands = await ctx.api.getMyCommands();
     let message = "Here's a list of commands:\n\n";
     commands.forEach((command) => {
