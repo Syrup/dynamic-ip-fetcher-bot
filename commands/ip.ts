@@ -10,6 +10,6 @@ export default {
 
     let ip = res.ip;
 
-    ctx.reply("Here's your public IP: " + ip);
+    ctx.reply(`Here's your public IP: \`${ip}\``, { parse_mode: "MarkdownV2" });
   },
 } satisfies Command;

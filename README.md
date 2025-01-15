@@ -13,23 +13,16 @@ To install dependencies:
 bun install
 ```
 
-## Configuration
-
-To configure the bot, you need to set the bot token and owner ID in the environment variables. Create a `.env` file with the following content:
-
-```
-BOT_TOKEN=<your_bot_token>
-```
-
-Or rename `.env.example` to `.env`
-
-### Setting Up Environment Variables
+## Configuratio Setting Up Environment Variables
 
 1. Create a `.env` file in the root directory of your project.
 2. Add the following content to the `.env` file:
 
 ```
 BOT_TOKEN=<your_bot_token>
+
+# Optional, you can set the user ID on the config.ts file
+USER_ID=<your_user_id>
 ```
 
 Example:
