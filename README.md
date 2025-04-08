@@ -13,7 +13,7 @@ To install dependencies:
 bun install
 ```
 
-## Configuratio Setting Up Environment Variables
+## Setting Up Environment Variables
 
 1. Create a `.env` file in the root directory of your project.
 2. Add the following content to the `.env` file:
@@ -63,12 +63,6 @@ bun run index.ts
 3. Send the command `/getid`.
 4. The bot will reply with your user ID.
 
-### Troubleshooting Tips
-
-- Ensure that the `userId` and `BOT_TOKEN` values are correct and match the ones provided by Telegram.
-- If the bot is not responding, check the logs for any error messages.
-- Make sure that the bot is not restricted or banned by Telegram.
-
 Additionally, set the bot to can't join group through BotFather to ensure only authorized users can access it. To do this, follow these steps:
 
 1. Open a chat with [BotFather](https://t.me/botfather) on Telegram.
@@ -87,9 +81,7 @@ bun run index.ts
 
 This project was created using `bun init` in bun v1.1.42. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
 
-## Auto Run Script on Boot
-
-### Linux
+## Auto Run Script on Boot on Linux
 
 To configure the bot to run on boot in Linux, you can use `systemctl`:
 
@@ -132,48 +124,7 @@ sudo systemctl start ipfetcher
 ```
 
 > [!NOTE]
-> Please check how to configure auto run script on boot for your specific Linux distribution.
-
-### Windows
-
-To configure the bot to run on boot in Windows, you can use Task Scheduler:
-
-1. Open Task Scheduler.
-2. Create a new task.
-3. Set the trigger to "At startup".
-4. Set the action to run `bun` with the path to `index.ts`.
-
-### macOS
-
-To configure the bot to run on boot in macOS, you can use `launchd`:
-
-1. Create a new plist file in `~/Library/LaunchAgents/`.
-2. Add the following content to the plist file:
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-    <key>Label</key>
-    <string>com.example.ipfetcher</string>
-    <key>ProgramArguments</key>
-    <array>
-        <string>/path/to/bun</string>
-        <string>run</string>
-        <string>/path/to/index.ts</string>
-    </array>
-    <key>RunAtLoad</key>
-    <true/>
-</dict>
-</plist>
-```
-
-3. Load the plist file:
-
-```bash
-launchctl load ~/Library/LaunchAgents/com.example.ipfetcher.plist
-```
+> Please check how to configure auto run script on boot for your OS (Operating System).
 
 ## Usage Examples
 
